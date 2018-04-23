@@ -32,37 +32,20 @@
 
 /******************************************************************************/
 // 	Секция описания функций (сначала глобальных, потом локальных)
-float DIFF_FindDifferent1(
-                          DIFF_differentiator_1_s *pStruct,
-                          float value)
+
+float
+DIFF_FindDifferent1(DIFF_differentiator_1_s *pStruct,
+                    float value)
 {
-	//	Дифференцирование методом 1-го порядка;
-	float diff = (value - pStruct->preValue) / pStruct->dT;
+  //	Дифференцирование методом 1-го порядка;
+  float diff = (value - pStruct->preValue) / pStruct->dT;
 
-	//	Копирование текущего значения в переменную для хранения значения за
-	//	шаг <t-1>;
-	pStruct->preValue = value;
+  //	Копирование текущего значения в переменную для хранения значения за
+  //	шаг <t-1>;
+  pStruct->preValue = value;
 
-	//	Возврат дифференцировванного значения;
-	return diff;
-}
-
-float DIFF_FindDifferent2(DIFF_differentiator_2_s *pStruct, float value)
-{
-	float diff;
-	if (pStruct->cnt == 0)
-	{
-		pStruct->cnt++;
-//		pStruct->preValue2 = value;
-	}
-	else if (pStruct->cnt == 1)
-	{
-		diff = (value - pStruct->preValue2) / pStruct->dT * 2;
-		pStruct->preValue2 = value;
-		pStruct->cnt = 0;
-		return diff;
-	}
-
+  //	Возврат дифференцировванного значения;
+  return diff;
 }
 /*============================================================================*/
 

@@ -54,40 +54,14 @@ typedef struct
 	 */
 	float preValue;
 } DIFF_differentiator_1_s;
-
-typedef struct
-{
-	/**
-	 * @brief	Период дифференцирования;
-	 */
-	float dT;
-
-	/**
-	 * @brief	Значение дифференцируемой переменной на шаге <t-1>;
-	 */
-	float preValue1;
-
-	/**
-	 * @brief	Значение дифференцируемой переменной на шаге <t-2>;
-	 */
-	float preValue2;
-
-	/**
-	 * @brief	Счетчик для определения такта дифференцирования;
-	 */
-	size_t cnt;
-} DIFF_differentiator_2_s;
 /******************************************************************************/
 
 
 /******************************************************************************/
 //  Секция определения глобальных переменных
-extern float DIFF_FindDifferent1(
-                                 DIFF_differentiator_1_s *pStruct,
-                                 float value);
-extern float DIFF_FindDifferent2(
-                                 DIFF_differentiator_2_s *pStruct,
-                                 float value);
+extern float DIFF_FindDifferent1
+(DIFF_differentiator_1_s *pStruct,
+        float value);
 /******************************************************************************/
 
 
