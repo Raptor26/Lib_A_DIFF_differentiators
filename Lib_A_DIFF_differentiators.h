@@ -38,8 +38,19 @@
 
 /******************************************************************************/
 //  Секция определения типов
+
+#if !defined (__DIFF_FPT__)
+#error 'Please, define __DIFF_FPT__, default value is float or double'
+#endif
+
+typedef enum
+{
+	DIFF_ERROR = 0,
+	DIFF_SUCCESS,
+} diff_fnc_status_e;
+
 /**
- * @brief	Структура содержит поля для функции, выполняющей фифференцирование
+ * @brief	Структура содержит поля для функции, выполняющей дифференцирование
  *  		методом 1-го порядка;
  */
 typedef struct
@@ -47,21 +58,39 @@ typedef struct
 	/**
 	 * @brief	Период дифференцирования;
 	 */
-	float dT;
+	__DIFF_FPT__ dT;
 
 	/**
 	 * @brief	Значение дифференцируемой переменной на предыдущем шаге;
 	 */
-	float preValue;
-} DIFF_differentiator_1_s;
+	__DIFF_FPT__ preValue;
+} diff_differentiator_1_s;
+
+typedef struct
+{
+	/**
+	 * @brief Период дифференцирования
+	 */
+	__DIFF_FPT__ dT;
+} diff_differentiation_1_init_struct_s;
 /******************************************************************************/
 
 
 /******************************************************************************/
 //  Секция определения глобальных переменных
-extern float DIFF_FindDifferent1
-(DIFF_differentiator_1_s *pStruct,
-        float value);
+extern __DIFF_FPT__
+DIFF_GetDifferent1
+(diff_differentiator_1_s *pStruct,
+ __DIFF_FPT__ value);
+
+extern diff_fnc_status_e
+DIFF_Init_Different1(
+	diff_differentiator_1_s *p_s,
+	diff_differentiation_1_init_struct_s *pInit_s);
+
+extern void
+DIFF_Different1_StructInit(
+	diff_differentiation_1_init_struct_s *pInit_s);
 /******************************************************************************/
 
 
