@@ -47,7 +47,7 @@ DIFF_GetDifferent1(
 {
 	//	Дифференцирование методом 1-го порядка;
 	__DIFF_FPT__ diff =
-		(value - p_s->preValue) / p_s->dT;
+		(value - p_s->preValue) * p_s->freq;
 
 	//	Копирование текущего значения в переменную для хранения значения за
 	//	шаг <t-1>;
@@ -77,7 +77,7 @@ DIFF_Init_Different1(
 {
 	if (pInit_s->dT != (__DIFF_FPT__) 0.0)
 	{
-		p_s->dT = pInit_s->dT;
+		p_s->freq = ((__DIFF_FPT__) 1.0) / pInit_s->dT;
 		p_s->initStatus = DIFF_SUCCESS;
 	}
 	else
