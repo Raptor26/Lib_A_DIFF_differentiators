@@ -75,18 +75,17 @@ DIFF_Init_Different1(
 	diff_differentiator_1_s *p_s,
 	diff_differentiation_1_init_struct_s *pInit_s)
 {
-	diff_fnc_status_e initStatus_e = DIFF_ERROR;
 	if (pInit_s->dT != (__DIFF_FPT__) 0.0)
 	{
 		p_s->dT = pInit_s->dT;
-		initStatus_e = DIFF_SUCCESS;
+		p_s->initStatus = DIFF_SUCCESS;
 	}
 	else
 	{
-		initStatus_e = DIFF_ERROR;
+		p_s->initStatus = DIFF_ERROR;
 	}
 
-	return (initStatus_e);
+	return (p_s->initStatus);
 }
 
 /**

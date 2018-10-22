@@ -64,12 +64,17 @@ typedef struct
 	 * @brief	Значение дифференцируемой переменной на предыдущем шаге;
 	 */
 	__DIFF_FPT__ preValue;
+
+	/**
+	 * @brief	Статус инициализации структуры данных
+	 */
+	diff_fnc_status_e initStatus;
 } diff_differentiator_1_s;
 
 typedef struct
 {
 	/**
-	 * @brief Период дифференцирования
+	 * @brief	Период дифференцирования
 	 */
 	__DIFF_FPT__ dT;
 } diff_differentiation_1_init_struct_s;
