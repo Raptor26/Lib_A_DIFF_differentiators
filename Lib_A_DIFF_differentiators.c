@@ -75,16 +75,12 @@ DIFF_Init_Different1(
 	diff_differentiator_1_s *p_s,
 	diff_differentiation_1_init_struct_s *pInit_s)
 {
+	p_s->initStatus = DIFF_ERROR;
 	if (pInit_s->dT != (__DIFF_FPT__) 0.0)
 	{
 		p_s->freq = ((__DIFF_FPT__) 1.0) / pInit_s->dT;
 		p_s->initStatus = DIFF_SUCCESS;
 	}
-	else
-	{
-		p_s->initStatus = DIFF_ERROR;
-	}
-
 	return (p_s->initStatus);
 }
 

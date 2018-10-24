@@ -33,16 +33,25 @@
 
 /******************************************************************************/
 //  Секция определения констант
+#if !defined (__DIFF_FPT__)
+#error "Please, set __DIFF_FPT__ = 'f' or 'd'"
+#endif
+
+/* Если __DIFF_FPT__ равен float */
+#if 	(__DIFF_FPT__ == 	'f')
+#undef 	__DIFF_FPT__
+#define __DIFF_FPT__		float
+
+/* Если __DIFF_FPT__ равен double */
+#elif 	__DIFF_FPT__ == 	'd'
+#undef  __DIFF_FPT__
+#define __DIFF_FPT__		double
+#endif
 /******************************************************************************/
 
 
 /******************************************************************************/
 //  Секция определения типов
-
-#if !defined (__DIFF_FPT__)
-#error 'Please, define __DIFF_FPT__, default value is float or double'
-#endif
-
 typedef enum
 {
 	DIFF_ERROR = 0,
