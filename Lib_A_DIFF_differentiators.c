@@ -73,7 +73,7 @@ DIFF_GetDifferent1(
 diff_fnc_status_e
 DIFF_Init_Different1(
 	diff_differentiator_1_s *p_s,
-	diff_differentiation_1_init_struct_s *pInit_s)
+	diff_differentiation_1_init_s *pInit_s)
 {
 	p_s->initStatus = DIFF_ERROR;
 	if (pInit_s->dT != (__DIFF_FPT__) 0.0)
@@ -91,7 +91,7 @@ DIFF_Init_Different1(
  */
 void
 DIFF_Different1_StructInit(
-	diff_differentiation_1_init_struct_s *pInit_s)
+	diff_differentiation_1_init_s *pInit_s)
 {
 	pInit_s->dT = (__DIFF_FPT__) 0.0;
 }

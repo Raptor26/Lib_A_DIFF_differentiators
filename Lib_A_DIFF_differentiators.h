@@ -87,7 +87,7 @@ typedef struct
 	 * @brief	Период дифференцирования
 	 */
 	__DIFF_FPT__ dT;
-} diff_differentiation_1_init_struct_s;
+} diff_differentiation_1_init_s;
 /******************************************************************************/
 
 
@@ -101,11 +101,11 @@ DIFF_GetDifferent1
 extern diff_fnc_status_e
 DIFF_Init_Different1(
 	diff_differentiator_1_s *p_s,
-	diff_differentiation_1_init_struct_s *pInit_s);
+	diff_differentiation_1_init_s *pInit_s);
 
 extern void
 DIFF_Different1_StructInit(
-	diff_differentiation_1_init_struct_s *pInit_s);
+	diff_differentiation_1_init_s *pInit_s);
 /******************************************************************************/
 
 
